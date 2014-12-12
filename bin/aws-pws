@@ -11,7 +11,7 @@ when 'init'
   pws.cli.add('AWS_SECRET_ACCESS_KEY')
 
 when 'cat'
-  pws = AWS::PWS::Client.new
+  pws = AWS::PWS::StealthClient.new
   puts "AWS_ACCESS_KEY_ID=#{pws.read('AWS_ACCESS_KEY_ID')}"
   puts "AWS_SECRET_ACCESS_KEY=#{pws.read('AWS_SECRET_ACCESS_KEY')}"
 
@@ -21,7 +21,7 @@ when 'reset'
   pws.cli.remove('AWS_SECRET_ACCESS_KEY')
 
 when 'env'
-  pws = AWS::PWS::Client.new
+  pws = AWS::PWS::StealthClient.new
   access_key_id = pws.read('AWS_ACCESS_KEY_ID')
   secret_access_key = pws.read('AWS_SECRET_ACCESS_KEY')
 

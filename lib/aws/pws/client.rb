@@ -6,7 +6,7 @@ module AWS
       attr_accessor :raw_data, :cli
 
       def initialize
-        @cli = ::PWS.new({})
+        @cli ||= ::PWS.new({})
         @raw_data = @cli.instance_variable_get(:@data)
       end
 
