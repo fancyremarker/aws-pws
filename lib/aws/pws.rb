@@ -1,7 +1,9 @@
 require 'aws/pws/version'
+require 'aws/pws/client'
 
-module Aws
-  module Pws
-    # Your code goes here...
+require_relative '../pws'
+
+module AWS
+  module PWS
   end
 end

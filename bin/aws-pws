@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require 'aws/pws'
+
+command = ARGV.shift
+
+case command
+when 'init'
+  pws = AWS::PWS::Client.new
+  pws.cli.add('AWS_ACCESS_KEY_ID')
+  pws.cli.add('AWS_SECRET_ACCESS_KEY')
+
+when 'cat'
+  pws = AWS::PWS::Client.new
+  puts "AWS_ACCESS_KEY_ID=#{pws.read('AWS_ACCESS_KEY_ID')}"
+  puts "AWS_SECRET_ACCESS_KEY=#{pws.read('AWS_SECRET_ACCESS_KEY')}"
+
+when 'reset'
+  pws = AWS::PWS::Client.new
+  pws.cli.remove('AWS_ACCESS_KEY_ID')
+  pws.cli.remove('AWS_SECRET_ACCESS_KEY')
+
+when 'env'
+  pws = AWS::PWS::Client.new
+  access_key_id = pws.read('AWS_ACCESS_KEY_ID')
+  secret_access_key = pws.read('AWS_SECRET_ACCESS_KEY')
+
+  puts "export AWS_ACCESS_KEY_ID=\"#{access_key_id}\""
+  puts "export AWS_ACCESS_KEY=\"#{access_key_id}\""
+  puts "export AWS_SECRET_ACCESS_KEY=\"#{secret_access_key}\""
+  puts "export AWS_SECRET_KEY=\"#{secret_access_key}\""
+
+else
+  puts "Usage: #{$PROGRAM_NAME} <command>"
+  puts '  Commands: init, cat, env, reset'
+end

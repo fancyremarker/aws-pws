@@ -1,5 +1,5 @@
-module Aws
-  module Pws
+module AWS
+  module PWS
     VERSION = '0.1.0'
   end
 end
