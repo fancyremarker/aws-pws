@@ -27,11 +27,7 @@ To create your keychain:
 
     $ aws-pws init
 
-To add an item to your aws keychain:
-
-    $ aws-pws add
-
-This will prompt for a friendly name, the Access Key ID, and the Secret Access Key.
+This will prompt for the Access Key ID and the Secret Access Key.
 
 To list items in the keychain:
 
@@ -45,14 +41,30 @@ To emit the environment variable `export` commands that you can source into your
 
     $ aws-pws env <name>
 
-To always load the given environment in your shell, add the following to
-your .bashrc or .zshrc
-
-    source `aws-pws env <name>`
-
 To automatically grab AWS credentials from your keychain when using the aws-sdk gem, add the following code:
 
     AWS.config(credential_provider: AWS::PWS::CredentialProvider.new(name))
+
+
+### Using aws-pws for a secure `aws` command line tool
+
+Create the following file, `aws-safe`, somewhere in your path:
+
+    #!/bin/bash
+
+    set -e
+
+    export $(aws-pws cat)
+    aws $@
+
+Make it executable via `chmod +x aws-safe`.
+
+
+### Using with multiple AWS accounts / credential pairs
+
+Unlike the aws-keychain-util, aws-pws doesn't support multiple account namespaces. However, you can use the `PWS` environment variable to achieve this:
+
+    PWS=/path/to/alternate/pws aws-pws ...
 
 ## Contributing
 
