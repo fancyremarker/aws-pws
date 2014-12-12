@@ -1,8 +1,7 @@
 # aws-pws
 
 [![Gem Version](https://badge.fury.io/rb/aws-pws.png)](https://rubygems.org/gems/aws-pws)
-[![Build Status](https://travis-ci.org/aptible/aws-pws.png?branch=master)](https://travis-ci.org/aptible/aws-pws)
-[![Dependency Status](https://gemnasium.com/aptible/aws-pws.png)](https://gemnasium.com/aptible/aws-pws)
+[![Build Status](https://travis-ci.org/fancyremarker/aws-pws.png?branch=master)](https://travis-ci.org/fancyremarker/aws-pws)
 
 A password-protected CredentialProvider for AWS, built on [pws](https://github.com/janlelis/pws) and largely copied from [aws-keychain-util](https://github.com/zwily/aws-keychain-util), with an accompanying command line helper.
 

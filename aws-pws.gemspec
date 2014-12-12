@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['frank@macreery.com']
   spec.description   = 'A password-protected CredentialProvider for AWS'
   spec.summary       = 'A password-protected CredentialProvider for AWS'
-  spec.homepage      = 'https://github.com/aptible/aws-pws'
+  spec.homepage      = 'https://github.com/fancyremarker/aws-pws'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($RS)
