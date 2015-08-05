@@ -1,5 +1,6 @@
 require 'aws/pws'
 require 'aws-sdk'
+require 'aws/core'
 
 module AWS
   module PWS
